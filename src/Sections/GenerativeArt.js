@@ -48,7 +48,7 @@ const GenerativeArt = () => {
 				ballRadiusUpperLimit={full.ballRadiusUpperLimit} />
 
 	},
-		{ id: "sierpinksiTriangle", isFullScreen: false, component: <SierpinskiTriangle index={smallComponents.length} width={width * 0.5} height={height * 0.8} /> },
+		{ id: "sierpinksiTriangle", isFullScreen: false, component: <SierpinskiTriangle index={smallComponents.length} width={width * 0.6} height={height * 0.5} /> },
 		{ id: "gameOfLife", isFullScreen: false, component: <GameOfLife index={smallComponents.length} width={width*0.4} height={height*0.4} /> }
 	])
 
