@@ -48,7 +48,7 @@ const More = () => {
 								<li className="text-bold">Professional Certificates</li>
 								<ul>
 									{certificates.map((certs, i) => {
-										return <li className="my-1"><a target="_blank"
+										return <li className="my-1" key={i}><a target="_blank"
 											href={`${certs.src}`}>
 											{certs.title}
 										</a>
@@ -128,14 +128,14 @@ const More = () => {
 								<Col sm={6}>
 									<ul className="my-2 list-style-none">
 										{skills.slice(0, Math.floor(skills.length / 2) + 1).map((skill, i) => {
-											return <li className="text-bold pb-1">{skill}</li>
+											return <li key={i} className="text-bold pb-1">{skill}</li>
 										})}
 									</ul>
 								</Col>
 								<Col sm={6}>
 									<ul className="mt-2 list-style-none">
 										{skills.slice(Math.floor((skills.length / 2) + 1), skills.length).map((skill, i) => {
-											return <li className="text-bold pb-1">{skill}</li>
+											return <li key={i} className="text-bold pb-1">{skill}</li>
 										})}
 									</ul>
 								</Col>

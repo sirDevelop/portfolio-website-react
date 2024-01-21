@@ -1,61 +1,68 @@
+import Preloader from "./Components/Preloader"
 import { Routes, Route } from "react-router-dom"
-import Intro from "./Sections/Intro"
-import More from "./Sections/More"
-import { Music } from "./Sections/Music"
-import PastProjects from "./Sections/PastProjects"
-import Contact from "./Sections/Contact"
-import Footer from "./Sections/Footer"
-import DigitalArt from "./Sections/DigitalArt"
-import GenerativeArt from "./Sections/GenerativeArt"
-import PersonalizeTheme from "./Components/PersonalizeTheme"
+import { lazy, Suspense } from 'react';
+
+// check when its fully loaded, works with Suspense
+const MainComponent = lazy(() => import('./Components/useMain'))
+const PersonalizeTheme = lazy(() => import('./Components/PersonalizeTheme'))
+const Intro = lazy(() => import('./Sections/Intro'))
+const More = lazy(() => import('./Sections/More'))
+const Music = lazy(() => import('./Sections/Music'))
+const PastProjects = lazy(() => import('./Sections/PastProjects'))
+const Contact = lazy(() => import('./Sections/Contact'))
+const DigitalArt = lazy(() => import('./Sections/DigitalArt'))
+const GenerativeArt = lazy(() => import('./Sections/GenerativeArt'))
+const Footer = lazy(() => import('./Sections/Footer'))
 
 const App = () => {
 	return (
 		<>
-			<Routes>
-				<Route
-					path="/"
-					element={
-						<>
-							<Intro />
-							<More />
-							<Music />
-							<PastProjects />
-							<Contact />
-						</>
-					}
-				/>
-				<Route
-					path="/digital_art"
-					element={
-						<>
-							<div className="d-none"><PersonalizeTheme /></div>
-							<DigitalArt />
-							<Contact />
-						</>
-					}
-				/>
-				<Route
-					path="/generative_art"
-					element={
-						<>
-							<div className="d-none"><PersonalizeTheme /></div>
-							<GenerativeArt />
-							<Contact />
-						</>
-					}
-				/>
-				<Route
-					path="/contact"
-					element={
-						<>
-							<Intro />
-							<Contact />
-						</>
-					}
-				/>
-			</Routes>
-			<Footer />
+			<Suspense fallback={<Preloader />}>
+				<MainComponent>
+					<Routes>
+						<Route
+							path="/"
+							element={
+								<>
+									<Intro />
+									<More />
+									<Music /> 
+									<PastProjects />
+									<Contact />
+								</>
+							}
+						/>
+						<Route
+							path="/digital_art"
+							element={
+								<>
+									<DigitalArt />
+									<Contact />
+								</>
+							}
+						/>
+						<Route
+							path="/generative_art"
+							element={
+								<>
+									<GenerativeArt />
+									<Contact />
+								</>
+							}
+						/>
+						<Route
+							path="/contact"
+							element={
+								<>
+									<Intro />
+									<Contact />
+								</>
+							}
+						/>
+					</Routes>
+					<Footer />
+				</MainComponent>
+			</Suspense>
 		</>
 	)
 }

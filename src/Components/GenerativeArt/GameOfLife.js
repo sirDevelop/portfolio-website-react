@@ -2,10 +2,11 @@ import * as React from "react";
 import { ReactP5Wrapper } from "@p5-wrapper/react";
 
 const GameOfLife = ({ type, index, width, height }) => {
+
     let cells, cellColor;
-    let scale = 8;
+    let scale = width > 800 ? 12 : 8;
     let size = Math.floor(Math.max(width, height) / scale);
-    let speed = 3;
+    let speed = 2;
     let running = true;
     let survival_rate = 0.5;
     let canvasName = "defaultCanvas" + index;
@@ -146,8 +147,10 @@ const GameOfLife = ({ type, index, width, height }) => {
         p5.draw = () => {
             let population = drawCells(p5);
             setupGrid(p5);
-
-            if (p5.frameCount % speed == 1 && running) cells = nextGeneration();
+                
+            if (p5.frameCount % speed == 1 && running) {
+                cells = nextGeneration();
+            }
         };
 
         p5.mousePressed = (e) => {

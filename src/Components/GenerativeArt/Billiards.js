@@ -15,6 +15,8 @@ const Billiards = ({ type, bypassCanvas, index, width, height, limit, WipeSize, 
     let running = true
     let dragging = false
     let canvasName = "defaultCanvas" + index
+    let pressedCount = 0
+    let last = 0
 
     const clearAll = () => {
         xPos = []
@@ -146,6 +148,17 @@ const Billiards = ({ type, bypassCanvas, index, width, height, limit, WipeSize, 
         p5.mousePressed = (e) => {
             if (e.target.id === canvasName || bypassCanvas) {
                 if (wipeScreen) return
+                // addBall(p5, p5.mouseX, p5.mouseY)
+
+                // pressedCount++;
+                // if (pressedCount == 1)
+                //     last = p5.millis();
+                // if (pressedCount == 2 && (p5.millis() - last) < 300) {//if pressed twice
+                //     // doubleclick
+                //     running = !running
+                //     pressedCount = 0;
+                // } else if ((p5.millis() - last) > 300)
+                //     pressedCount = 0;
 
                 if (p5.mouseButton === p5.LEFT) {
                     addBall(p5, p5.mouseX, p5.mouseY)
@@ -153,7 +166,6 @@ const Billiards = ({ type, bypassCanvas, index, width, height, limit, WipeSize, 
                 if (p5.mouseButton === p5.RIGHT || p5.mouseButton === p5.CENTER) {
                     running = !running
                 }
-                
             }
         }
 

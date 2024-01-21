@@ -5,10 +5,12 @@ import SierpinskiTriangle from "../Components/GenerativeArt/SierpinskiTriangle"
 import GameOfLife from "../Components/GenerativeArt/GameOfLife"
 import parse from 'html-react-parser';
 
-import { Card, Button, Row, Col, Container } from "react-bootstrap"
+import { Card, Button, Row, Col, Container, Collapse } from "react-bootstrap"
 import Swal from 'sweetalert2'
 import React, { useState } from "react"
 import { createPortal } from 'react-dom'
+import { faCopyright } from "@fortawesome/free-regular-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 
 const GenerativeArt = () => {
@@ -48,12 +50,18 @@ const GenerativeArt = () => {
 				ballRadiusUpperLimit={full.ballRadiusUpperLimit} />
 
 	},
-		{ id: "sierpinksiTriangle", isFullScreen: false, component: <SierpinskiTriangle index={smallComponents.length} width={width * 0.6} height={height * 0.5} /> },
+		{ id: "sierpinksiTriangle", isFullScreen: false, component: <SierpinskiTriangle index={smallComponents.length} width={width * 0.4} height={height * 0.6} /> },
 		{ id: "gameOfLife", isFullScreen: false, component: <GameOfLife index={smallComponents.length} width={width*0.4} height={height*0.4} /> }
 	])
 
 	const showFullScreen = (id) => {
-		Swal.fire({
+		const swalWithBootstrapButtons = Swal.mixin({
+			customClass: {
+				confirmButton: "btn btn-secondary",
+			},
+			buttonsStyling: false
+		});
+		swalWithBootstrapButtons.fire({
 			grow: "fullscreen",
 			confirmButtonText: "Close",
 			didOpen: () => {
@@ -64,6 +72,8 @@ const GenerativeArt = () => {
 			},
 		})
 	}
+
+	
 	
 	return (
 		<>
@@ -71,7 +81,7 @@ const GenerativeArt = () => {
 				<div className="main-container text-center">
 					<div className="greeting-wrapper center">
 						<h1 style={{ marginBottom: 10 }}>Generative Art Gallery</h1>
-						<p>All rights reserved.</p>
+						<p>All rights reserved. <FontAwesomeIcon icon={faCopyright} /> 2024</p>
 					</div>
 					<div className="nav-wrapper border border-secondary border-bottom-0">
 						<div className="dots-wrapper">
@@ -85,7 +95,7 @@ const GenerativeArt = () => {
 						<Row>
 							{smallComponents.map((art, i) => {
 								return (
-									<Col key={i} sm={4}>
+									<Col key={i} sm={4} onMouseEnter={() => {}}>
 										<Card className="gen_art p-3 m-3">
 											<Card.Img as={Container} variant="top" className="p-0">
 												{art.component}
@@ -97,7 +107,9 @@ const GenerativeArt = () => {
 													<hr />
 													{parse(art.instructions)}
 												</Card.Text>
-												<Button variant="primary" onClick={() => { showFullScreen(art.id) }}>Full Screen</Button>
+												<Button variant="primary" onClick={() => { 
+													showFullScreen(art.id)
+													}}>Full Screen</Button>
 											</Card.Body>
 										</Card>
 									</Col>
@@ -113,7 +125,7 @@ const GenerativeArt = () => {
 						{art.isFullScreen &&
 							createPortal(
 								<Row>
-									<Col key={i} sm={12}>
+									<Col key={i} sm={12} className="centerV">
 										{art.component}
 									</Col>
 								</Row>,

@@ -1,29 +1,7 @@
 import React, { useEffect } from "react"
-
+import {useMain} from "./useMain"
 const PersonalizeTheme = () => {
-	function setTheme(mode) {
-		document.getElementById("root").classList.remove("light")
-		document.getElementById("root").classList.remove("red")
-		document.getElementById("root").classList.remove("blue")
-		document.getElementById("root").classList.remove("purple")
-		if (mode === "light") {
-			document.getElementById("root").classList.add("light")
-		} else if (mode === "blue") {
-			document.getElementById("root").classList.add("blue")
-		} else if (mode === "red") {
-			document.getElementById("root").classList.add("red")
-		} else if (mode === "purple") {
-			document.getElementById("root").classList.add("purple")
-		}
-		localStorage.setItem("theme", mode)
-	}
-	useEffect(() => {
-		setTheme(
-			localStorage.getItem("theme")
-				? localStorage.getItem("theme")
-				: "light"
-		)
-	}, [])
+	const {setTheme} = useMain()
 	return (
 		<>
 			{/* textAlign: "center",  */}

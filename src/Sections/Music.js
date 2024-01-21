@@ -1,6 +1,4 @@
-import React from "react"
-
-export const Music = () => {
+const Music = () => {
 	return (
 		<section id="music" className="sections">
 			<div className="main-container music my-3">
@@ -37,3 +35,5 @@ export const Music = () => {
 		</section>
 	)
 }
+
+export default Music
