@@ -39,7 +39,7 @@ const GenerativeArt = () => {
 		title: "The Game of Life",
 		component: <GameOfLife type={"card"} index={2} width={300} height={200} />,
 		description: "A cellular automaton by British Mathematician John Conway designed to model population growth over time.",
-		instructions: `<ul className="list-style-none m-0 p-0"><li>Click to pause/ restart the simulation.</li><li>Drag your mouse across the cells to create new colonies.</li></ul>`
+		instructions: `<ul className="list-style-none m-0 p-0"><li>Click to pause/ restart the simulation.</li><li>Hold and drag your mouse across the cells to create new colonies.</li></ul>`
 	}
 	]
 
