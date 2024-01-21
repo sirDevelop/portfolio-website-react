@@ -1,0 +1,16 @@
+:root .red {
+	--mainColor: #8a2525;
+	--secondaryColor: #580606;
+
+	--borderColor: #191414;
+
+	--mainText: #fff;
+	--secondaryText: #eeeeee;
+
+	--themeDotBorder: #fff;
+
+	--previewBg: #b95959;
+	--previewShadow: #580606;
+
+	--buttonColor: #a75b5b;
+}

@@ -1,0 +1,66 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.nav-wrapper {
+  border-color: #c1c1c1 !important;
+}
+
+.react-photo-album--photo {
+  /* border-radius: 10px; */
+  transition: all 0.2s;
+}
+
+.react-photo-album--photo:hover {
+  transition: all 0.2s;
+  box-shadow: 0 0 5px 5px gold;
+}
+
+.projects {
+  transition: transform .4s;
+}
+
+.hidden-project {
+  transition: transform .4s;
+  -ms-transform: scale(0);
+  /* IE 9 */
+  -webkit-transform: scale(0);
+  /* Safari 3-8 */
+  transform: scale(0);
+  animation: hide 2s;
+  position: absolute;
+}
+
+@keyframes hide {
+  from {
+    position: relative;
+  }
+
+  to {
+    position: absolute;
+  }
+}
+.list-style-none{
+  list-style-type: none;
+}
+
+.text-truncate2{
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.swal2-html-container {
+  overflow-x: hidden !important;
+}

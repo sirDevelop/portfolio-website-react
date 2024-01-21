@@ -1,0 +1,547 @@
+// const Toast = Swal.mixin({
+// 	toast: true,
+// 	position: "top-end",
+// 	showConfirmButton: false,
+// 	timer: 3000,
+// 	timerProgressBar: true,
+// 	didOpen: (toast) => {
+// 		toast.addEventListener("mouseenter", Swal.stopTimer)
+// 		toast.addEventListener("mouseleave", Swal.resumeTimer)
+// 	},
+// })
+
+const slideShowImages = [
+	{ title: "Skydive Landing", src: "../assets/image/skydive-landing-2.jpg" },
+	{ title: "Skydive 1", src: "../assets/image/skydive1.jpg" },
+	{ title: "Skydive 2", src: "../assets/image/skydive2.jpg" },
+	{ title: "Skydive 3", src: "../assets/image/skydive3.jpg" },
+	{ title: "Skydive 4", src: "../assets/image/skydive4.jpg" },
+	{ title: "Indra 1", src: "../assets/image/Indra1.jpg" },
+	{ title: "Indra 2", src: "../assets/image/Indra2.jpg" },
+	{ title: "Marco 1", src: "../assets/image/Marco1.jpg" },
+	{ title: "Marco 2", src: "../assets/image/Marco2.jpg" },
+]
+
+const certificates = [
+	{
+		title: "Google Data Analytics Professional Certificate",
+		src: "https://www.coursera.org/account/accomplishments/professional-cert/8J35TQN8QSR6",
+	},
+	{
+		title: "Meta Front-End Developer Professional Certificate",
+		src: "https://www.coursera.org/account/accomplishments/professional-cert/2DYC2QTC9CRA",
+	},
+	{
+		title: "Meta Back-End Developer Professional Certificate",
+		src: "https://www.coursera.org/account/accomplishments/professional-cert/ZNRVZ4EFKVHB",
+	},
+]
+
+const posts = [
+	{
+		category: "se",
+		title: "Little Lemon Restaurant Website",
+		text: "This is a fully responsive website that allows you to create user accounts, login/logout, view the menu, place orders, create reservations, and saves order and reservation history. Stack involves React, NodeJS, and MongoDB.",
+		img: "../assets/image/little-lemon-app-react.png",
+		link: "https://github.com/sirDevelop/little-lemon-app",
+		linkTitle: "Source Code",
+	},
+	{
+		category: "se",
+		title: "MouthWatering Deals Website",
+		text: "This is a full stack website that allows a user to login via Google OAuth, visit a catalog to browse items and checkout their cart using Stripe. The items on the catalog page can be filtered by category and the user can view their order history. Stack involves React, NodeJS, and MonogDB.",
+		img: "../assets/image/ecommerce-website.png",
+		link: "https://github.com/sirDevelop/ecommerce-web-app",
+		linkTitle: "Source Code",
+	},
+	{
+		category: "se",
+		title: "Musical Beat Maker",
+		text: "Web application that allows users to choose between 4 different kicks, 4 different snares, and 4 different hihats to produce a beat. The tempo can be adjusted from 20 bpm up to 300 bpm. Coded in React.",
+		img: "../assets/image/beatmaker-project.png",
+		link: "https://github.com/sirDevelop/beat-maker",
+		linkTitle: "Source Code",
+	},
+	{
+		category: "se",
+		title: "Musical Beat Producer",
+		text: "Web application that allows users to create a sequence of beats to form a musical track. User can control up to 16 drum pads using the keyboard or by mouse click, and set the tempo up to 300 bpm. Coded in Angular.",
+		img: "../assets/image/producer-project.png",
+		link: "https://github.com/sirDevelop/producer",
+		linkTitle: "Source Code",
+	},
+	{
+		category: "se",
+		title: "This Personal Website!",
+		text: "A full stack personal website involving HTML, CSS, Javascript, and a Node.js backend. Featuring personally created artwork, music from Spotify, links to my projects on GitHub, and a contact section which sends your message to my Telegram bot.",
+		img: "../assets/image/portfolio-website.png",
+		link: "https://github.com/sirDevelop/portfolio-website",
+		linkTitle: "Source Code",
+	},
+	{
+		category: "ds",
+		title: "Analysis of Ski Data",
+		text: "Data from 330 different ski resorts across the country with 32 features are analyzed. Recommendations are given on what amenities should be taken away and added to the resort as well as ideal ticket price to maximize revenue.",
+		img: "../assets/image/ds-capstone.png",
+		link: "https://github.com/sirDevelop/DataScienceGuidedCapstone",
+		linkTitle: "Source Code",
+	},
+	{
+		category: "ds",
+		title: "Analysis of Cyclistic Bike Share",
+		text: "An end to end data science project analyzing one year's worth of Cyclistic Rider Data. We created visualizations and insights based on member vs casual rider behavior and recommendations were given on how to convert casual riders to members.",
+		img: "../assets/image/cyclistic-project.png",
+		link: "https://github.com/sirDevelop/Cyclistic-Bike-Study",
+		linkTitle: "Source Code",
+	},
+	{
+		category: "ds",
+		title: "Analysis of London Housing Prices",
+		text: "Housing prices of 32 boroughs in London are analyzed over a 2 decade period. After data processing and cleaning, visualizations and supporting conclusions are provided.",
+		img: "../assets/image/london-housing-analysis.png",
+		link: "https://github.com/sirDevelop/London-Housing-Data-Analysis",
+		linkTitle: "Source Code",
+	},
+	{
+		category: "ds",
+		title: "Analysis of Fitbit Data for BellaBeat",
+		text: "Analysis of Fitbit data of 33 users across a span of 30 days. The findings are used to give recommendations to the smart device company BellaBeat.",
+		img: "../assets/image/bellabeat.png",
+		link: "https://github.com/sirDevelop/BellaBeat-Data-Analysis/tree/main",
+		linkTitle: "Source Code",
+	},
+]
+
+const imageVerification = (src, i) => {
+	var img = document.querySelector(`img.img-${i}`)
+	if (img.complete) {
+		loadedImage++
+	} else {
+		img.addEventListener("load", () => loadedImage++)
+		img.addEventListener("error", () => loadedImage++)
+	}
+}
+
+// certificates section
+const certificateInit = () => {
+	certsHTML = "<ul>"
+	certificates.forEach((certs, i) => {
+		certsHTML += `<li><a target="_blank"
+		href="${certs.src}">
+		${certs.title}
+	</a></li>`
+	})
+	certsHTML += "</ul>"
+	$("#certs").append(certsHTML)
+}
+
+// creates the past projects section
+const postInit = () => {
+	let postsHtml = ""
+	posts.forEach((post, i) => {
+		postsHtml += `<div class="element-item ${post.category} hide col-sm-6 col-md-4 p-3">
+			<div class="card">
+				<a target="_blank" href="${post.link}">
+					<img class="card-img-top img-${i}" src="${post.img}" alt="" /></a>
+				<div class="card-body">
+					<h5 class="card-title text-dark">${post.title}</h5>
+					<p class="card-text">
+						${post.text}
+					</p>
+					<a target="_blank" href="${post.link}">${post.linkTitle}</a>
+				</div>
+			</div>
+		</div>`
+	})
+
+	// adds the isotope functionality to the grid
+	$.when($(".grid").append(postsHtml)).done(() => {
+		posts.forEach((post, i) => {
+			imageVerification(post.img, i)
+		})
+		const isotopeVerification = setInterval(() => {
+			if (loadedImage === posts.length) {
+				$.when($(".spinner-grow").remove()).done(() => {
+					$.when($(".grid div.hide").removeClass("hide")).done(() => {
+						var $grid = $(".grid").isotope({
+							itemSelector: ".element-item",
+							layoutMode: "fitRows",
+						})
+
+						// filter functions
+						var filterFns = {
+							// show if number is greater than 50
+							numberGreaterThan50: function () {
+								var number = $(this).find(".number").text()
+								return parseInt(number, 10) > 50
+							},
+							// show if name ends with -ium
+							ium: function () {
+								var name = $(this).find(".name").text()
+								return name.match(/ium$/)
+							},
+						}
+
+						// bind filter button click
+						$("#filters").on("click", "li", function () {
+							$("#filters li a.active").removeClass("active")
+							$(this).children("a").addClass("active")
+							var filterValue = $(this).attr("data-filter")
+							// use filterFn if matches value
+							filterValue = filterFns[filterValue] || filterValue
+							$grid.isotope({ filter: filterValue })
+						})
+
+						// bind sort button click
+						$("#sorts").on("click", "button", function () {
+							var sortByValue = $(this).attr("data-sort-by")
+							$grid.isotope({ sortBy: sortByValue })
+						})
+
+						// change is-checked class on buttons
+						$(".button-group").each(function (i, buttonGroup) {
+							var $buttonGroup = $(buttonGroup)
+							$buttonGroup.on("click", "button", function () {
+								$buttonGroup
+									.find(".is-checked")
+									.removeClass("is-checked")
+								$(this).addClass("is-checked")
+							})
+						})
+						clearInterval(isotopeVerification)
+					})
+				})
+			}
+		}, 1000)
+	})
+}
+
+let loadedImage = 0,
+	slideIndex = 1
+
+// creates the introduction section
+const introductionSectionInit = () => {
+	slideShowHTML = ""
+	slideShowImages.forEach((image, i) => {
+		slideShowHTML += `<div class="mySlides"><img id="profile_pic"
+			src="${image.src}" alt="" /></div>`
+	})
+	slideShowHTML += `<a class="prev" onclick="plusSlides(-1)">&#10094;</a><a class="next" onclick="plusSlides(1)">&#10095;</a>`
+
+	$(".slideshow-container").append(slideShowHTML)
+
+	dotContainerHTML = ""
+	;[1, 2, 3, 4, 5, 6, 7, 8, 9].forEach((num, i) => {
+		dotContainerHTML += `<span class="dot" onclick="currentSlide(${num})"></span>`
+	})
+
+	$(".dot-container").append(dotContainerHTML)
+}
+
+function setup() {
+	const themeDot = document.querySelectorAll(".theme-dot")
+
+	let theme = localStorage.getItem("theme")
+
+	if (theme) {
+		setTheme(theme)
+	} else {
+		setTheme("light")
+	}
+
+	for (var i = 0; i < themeDot.length; i++) {
+		themeDot[i].addEventListener("click", function () {
+			let mode = this.dataset.mode
+			setTheme(mode)
+		})
+	}
+
+	let liTags = document.getElementById("facts").getElementsByTagName("li")
+	for (let i = 0; i < liTags.length; i++) {
+		if (i % 2 == 1) {
+			liTags[i].style.border = "2px solid"
+			liTags[i].style.borderLeft = "none"
+			liTags[i].style.borderRight = "none"
+			if (i == liTags.length - 1) {
+				liTags[i].style.borderBottom = "none"
+			}
+		}
+
+		liTags[i].style.width = "95%"
+		liTags[i].style.paddingBottom = "10px"
+	}
+	introductionSectionInit()
+}
+setup()
+showSlides(slideIndex)
+
+function setTheme(mode) {
+	if (mode == "light") {
+		document.getElementById("theme-style").href =
+			"../assets/css_themes/default.css"
+	} else if (mode == "blue") {
+		document.getElementById("theme-style").href =
+			"../assets/css_themes/blue.css"
+	} else if (mode == "red") {
+		document.getElementById("theme-style").href =
+			"../assets/css_themes/red.css"
+	} else if (mode == "purple") {
+		document.getElementById("theme-style").href =
+			"../assets/css_themes/purple.css"
+	}
+
+	localStorage.setItem("theme", mode)
+}
+
+const imgPath = [
+	"../assets/image/divine-noise-fractal.png",
+	"../assets/image/chaos-flower-fractal.png",
+	"../assets/image/turquoise-cymbals-fractal.png",
+	"../assets/image/yellow-feng-shui-fractal.png",
+	"../assets/image/cellular-origins-fractal.png",
+	"../assets/image/astro-observer-fractal.png",
+	"../assets/image/blue-emergence-fractal.png",
+	"../assets/image/pink-orb-fractal.png",
+	"../assets/image/illustrious-magician-fractal.png",
+	"../assets/image/burst-fractal.png",
+	"../assets/image/puzzled-fire-fractal.png",
+	"../assets/image/spiral-chaos-fractal.png",
+	"../assets/image/jade-phoenix-fractal.png",
+	"../assets/image/resonant-fireworks-fractal.png",
+	"../assets/image/vortex-light-fractal.png",
+	"../assets/image/emerald-jade-fractal.png",
+	"../assets/image/lava-inferno-fractal.png",
+	"../assets/image/bleeding-star-fractal.png",
+	"../assets/image/blue-rose-fractal.png",
+	"../assets/image/neural-network-fractal.png",
+	"../assets/image/curious-amoeba-fractal.png",
+	"../assets/image/morning-eagle-fractal.png",
+	"../assets/image/blue-vortex-fractal.png",
+	"../assets/image/eye-burst-fractal.png",
+	"../assets/image/artery-fractal.png",
+	"../assets/image/phoenix-fractal.png",
+	"../assets/image/neutron-fractal.png",
+	"../assets/image/chrysalis-flower-fractal.png",
+	"../assets/image/icy-mint-fractal.png",
+	"../assets/image/worlds-fractal.png",
+	"../assets/image/rose-fractal.png",
+	"../assets/image/disco-spiral-fractal.png",
+	"../assets/image/blue-velvet-fractal.png",
+	"../assets/image/neuron-fractal.png",
+	"../assets/image/poseidon-fractal.png",
+	"../assets/image/golden-phoenix-fractal.png",
+	"../assets/image/color-wheel-fractal.png",
+	"../assets/image/sun-rose-fractal.png",
+	"../assets/image/starlight-butterfly-fractal.png",
+	"../assets/image/icicle-lights-fractal.png",
+	"../assets/image/space-rubiks-fractal.png",
+	"../assets/image/philosopher-fractal.png",
+	"../assets/image/nebulous-planet-fractal.png",
+	"../assets/image/lost-heart-fractal.png",
+	"../assets/image/magma-jellyfish-fractal.png",
+	"../assets/image/emerald-matrix-fractal.png",
+	"../assets/image/vitruvian-flower-fractal.png",
+	"../assets/image/autograph-fractal.png",
+	"../assets/image/valentines-vortex-fractal.png",
+	"../assets/image/glowing-orbit-fractal.png",
+	"../assets/image/rainbow-coral-fractal.png",
+	"../assets/image/electric-phoenix-fractal.png",
+	"../assets/image/beating-heart-fractal.png",
+	"../assets/image/rose-pendant-fractal.png",
+	"../assets/image/exotic-silk-fractal.png",
+	"../assets/image/bone-fracture-fractal.png",
+	"../assets/image/dark-matter-fractal.png",
+	"../assets/image/emerging-flame-fractal.png",
+	"../assets/image/perfect-rose-fractal.png",
+	"../assets/image/broken-phoenix-fractal.png",
+	"../assets/image/blue-sprite-fractal.png",
+	"../assets/image/infinite-coral-fractal.png",
+	"../assets/image/window-sprite-fractal.png",
+	"../assets/image/matrix-coin-fractal.png",
+	"../assets/image/lava-drip-fractal.png",
+	"../assets/image/infinite-circle-fractal.png",
+]
+
+let imagePageLoaded = 0,
+	imageIndex = 0
+const itemsInImagePage = 9
+function loadImage() {
+	imagePageLoaded++
+	for (let i = imageIndex; i < imagePageLoaded * itemsInImagePage; i++) {
+		imageIndex++
+		if (imgPath[i]) {
+			let imgDiv = $("<div class='img-w'></div>")
+			imgDiv.appendTo($("#gallery"))
+			imgUrl = imgPath[i].replace(".png", "-min.png")
+			imgDiv.css("background-image", "url(" + imgUrl + ")")
+			imgDiv.wrap("<div class='img-c'></div>")
+		} else {
+			$("#load-more").remove()
+		}
+	}
+}
+
+$(document).ready(function () {
+	if (window.location.hash) openSection(window.location.hash.replace("#", ""))
+	const messageSuccess = getCookie("messageSuccess")
+	// console.log(messageSuccess);
+	// console.log(messageSuccess == "true");
+	if (messageSuccess) {
+		// Toast.fire({
+		// 	icon: "success",
+		// 	title: "Message has been sent!",
+		// 	background: '#29ab9f',
+		// 	color: '#4b5156',
+		// 	iconColor: "white"
+		// })
+		$.Toast("Success!", "Message has been sent", "success", {
+			has_icon: true,
+			has_close_btn: true,
+			stack: true,
+			position_class: "toast-top-left",
+			fullscreen: false,
+			timeout: 4000,
+			sticky: false,
+			has_progress: true,
+			rtl: false,
+		})
+		deleteCookie("messageSuccess")
+	}
+	certificateInit()
+	postInit()
+	loadImage()
+
+	$(document).on("click", ".img-c", function () {
+		let w = $(this).outerWidth()
+		let h = $(this).outerHeight()
+
+		$(".active").not($(this)).remove()
+		let copy = $(this).clone()
+		copy.insertAfter($(this))
+			.height(h)
+			.width(w)
+			.delay(500)
+			.addClass("active")
+		copy.addClass("positioned")
+		copy.wrap("<div class='backdrop'></div>")
+	})
+
+	$(document).on("click", ".img-c.active, .backdrop", function () {
+		$(this).remove()
+		$(".backdrop").remove()
+	})
+})
+
+function deleteCookie(name, path, domain) {
+	if (getCookie(name)) {
+		document.cookie =
+			name +
+			"=" +
+			(path ? ";path=" + path : "") +
+			(domain ? ";domain=" + domain : "") +
+			";expires=Thu, 01 Jan 1970 00:00:01 GMT"
+	}
+}
+
+function getCookie(cname) {
+	var name = cname + "="
+	var decodedCookie = decodeURIComponent(document.cookie)
+	var ca = decodedCookie.split(";")
+	for (var i = 0; i < ca.length; i++) {
+		var c = ca[i]
+		while (c.charAt(0) == " ") {
+			c = c.substring(1)
+		}
+		if (c.indexOf(name) == 0) {
+			return c.substring(name.length, c.length)
+		}
+	}
+	return ""
+}
+
+// Next/previous controls
+function plusSlides(n) {
+	showSlides((slideIndex += n))
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+	showSlides((slideIndex = n))
+}
+
+function showSlides(n) {
+	let slides = document.getElementsByClassName("mySlides")
+	let dots = document.getElementsByClassName("dot")
+	if (n > slides.length) {
+		slideIndex = 1
+	}
+	if (n < 1) {
+		slideIndex = slides.length
+	}
+	for (let i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none"
+	}
+	for (let i = 0; i < dots.length; i++) {
+		dots[i].className = dots[i].className.replace(" active", "")
+	}
+	slides[slideIndex - 1].style.display = "block"
+	dots[slideIndex - 1].className += " active"
+}
+
+function openSection(name) {
+	let digital_art = document.getElementById("digital_art")
+	let intro = document.getElementById("intro")
+	let more = document.getElementById("more")
+	let past_projects = document.getElementById("past_projects")
+	let music = document.getElementById("music")
+	let contact = document.getElementById("contact")
+	let digitalArt = ""
+
+	switch (name) {
+		case "digital_art":
+			digitalArt = digital_art.innerHTML
+			digital_art.remove()
+			$(more).after(
+				`<section id="digital_art" class="sections">${digitalArt}</section>`
+			)
+			music.classList.remove("hide")
+			intro.classList.add("hide")
+			// add to change back default coloring of background
+			intro.classList.add("sections")
+			more.classList.add("hide")
+			past_projects.classList.add("hide")
+			contact.classList.add("hide")
+			break
+		case "intro":
+			postInit()
+			intro.classList.remove("hide")
+			// add to change back default coloring of background
+			intro.classList.add("sections")
+			more.classList.remove("hide")
+			past_projects.classList.remove("hide")
+			contact.classList.remove("hide")
+			music.classList.remove("hide")
+			digitalArt = digital_art.innerHTML
+			digital_art.remove()
+			$("#holder").append(
+				`<section id="digital_art" class="sections">${digitalArt}</section>`
+			)
+			postInit()
+			break
+		case "contact":
+			intro.classList.remove("hide")
+			// remove to change the default coloring of background
+			intro.classList.remove("sections")
+			contact.classList.remove("hide")
+			more.classList.add("hide")
+			music.classList.add("hide")
+			past_projects.classList.add("hide")
+			digitalArt = digital_art.innerHTML
+			digital_art.remove()
+			$("#holder").append(
+				`<section id="digital_art" class="sections">${digitalArt}</section>`
+			)
+			break
+		default:
+	}
+}
