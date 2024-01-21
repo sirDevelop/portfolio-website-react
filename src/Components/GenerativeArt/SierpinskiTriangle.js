@@ -1,7 +1,10 @@
 import * as React from "react";
 import { ReactP5Wrapper } from "@p5-wrapper/react";
 
-const SierpinskiTriangle = ({ index, width, height }) => {
+const SierpinskiTriangle = ({ type, index, width, height }) => {
+    // let width = Math.min(600, w);
+    // let height = Math.min(600, h);
+
     let iteration = 1;
     let positiveDirection = true;
     let maxIterations = 9;
@@ -30,7 +33,7 @@ const SierpinskiTriangle = ({ index, width, height }) => {
 
     const sketch = (p5) => {
         p5.setup = () => {
-            p5.createCanvas(width ? width : 1280, height ? height : 600);
+            p5.createCanvas(width ? type === "card" ? document.querySelector(".card-img-top.container").offsetWidth : width : 1280, height ? type === "card" ? document.querySelector(".card-img-top.container").offsetWidth / 3 * 2 : height : 600)
             p5.background(450);
             p5.noStroke();
             p5.smooth();
@@ -41,8 +44,6 @@ const SierpinskiTriangle = ({ index, width, height }) => {
         };
 
         p5.mouseClicked = (e) => {
-            // console.log("e.target.id", e.target.id);
-            // console.log("canvasName", canvasName);
             if (e.target.id === canvasName){
                 if(positiveDirection) iteration += 1
                 else {

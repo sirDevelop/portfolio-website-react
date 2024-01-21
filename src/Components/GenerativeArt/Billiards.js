@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ReactP5Wrapper } from "@p5-wrapper/react";
-const Billiards = ({ bypassCanvas, index, width, height, limit, WipeSize, ballRadiusLowerLimit, ballRadiusUpperLimit }) => {
+const Billiards = ({ type, bypassCanvas, index, width, height, limit, WipeSize, ballRadiusLowerLimit, ballRadiusUpperLimit }) => {
     // number of balls before we wipe the screen
     let LIMIT = limit ? limit : 30
     let xPos = []
@@ -97,15 +97,12 @@ const Billiards = ({ bypassCanvas, index, width, height, limit, WipeSize, ballRa
         ballRadii.splice(index, 1)
     }
     const sketch = (p5) => {
-        setTimeout(() => {
-            const canvasDiv = document.getElementById("card-img-top container")
-            console.log(canvasDiv, canvasName)
-}, 1000)
-        // var width = canvasDiv.offsetWidth;
         // var sketchCanvas = createCanvas(width, 450);
         // sketchCanvas.parent("myCanvas");
 
-        p5.setup = () => p5.createCanvas(width ? width : 1280, height ? height : 600);
+        p5.setup = () => {
+            p5.createCanvas(width ? type === "card" ? document.querySelector(".card-img-top.container").offsetWidth : width : 1280, height ? type === "card" ? document.querySelector(".card-img-top.container").offsetWidth / 3 * 2 : height : 600)
+        }
 
         p5.draw = () => {
             p5.background(0);

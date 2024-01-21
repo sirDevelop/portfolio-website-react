@@ -19,7 +19,7 @@ const GenerativeArt = () => {
 	const smallComponents = [{
 		id: "billiard",
 		title: "Billiard Balls",
-		component: <Billiards bypassCanvas={false} index={0} width={300} height={200} limit={small.limit}
+		component: <Billiards bypassCanvas={false} index={0} type={"card"} width={width * 0.2} height={height * 0.15} limit={small.limit}
 			WipeSize={small.wipeSize} ballRadiusLowerLimit={small.ballRadiusLowerLimit}
 			ballRadiusUpperLimit={small.ballRadiusUpperLimit} />,
 		description: "A simulation in which the larger sized balls absorb the smaller ones. Play it across multiple panels in full screen mode.",
@@ -28,14 +28,14 @@ const GenerativeArt = () => {
 	{
 		id: "sierpinksiTriangle",
 		title: "Sierpinski's Triangle",
-		component: <SierpinskiTriangle index={1} width={300} height={200} />,
+		component: <SierpinskiTriangle type={"card"} index={1} width={300} height={200} />,
 		description: "A famous fractal in which an equilateral triangle recursively subdivides itself into smaller equilateral triangles.",
-		instructions: `<ul className="list-style-none m-0 p-0"><li>Keep clicking on the triangle to render more iterations of this famous fractal.</li></ul>`
+		instructions: `<ul className="list-style-none m-0 p-0"><li>Keep clicking on the triangle to render more iterations of this fabulous fractal.</li></ul>`
 	},
 	{
 		id: "gameOfLife",
 		title: "The Game of Life",
-		component: <GameOfLife index={2} width={300} height={200} />,
+		component: <GameOfLife type={"card"} index={2} width={300} height={200} />,
 		description: "A cellular automaton by British Mathematician John Conway designed to model population growth over time.",
 		instructions: `<ul className="list-style-none m-0 p-0"><li>Click to pause/ restart the simulation.</li><li>Drag your mouse across the cells to create new colonies.</li></ul>`
 	}
@@ -48,8 +48,8 @@ const GenerativeArt = () => {
 				ballRadiusUpperLimit={full.ballRadiusUpperLimit} />
 
 	},
-		{ id: "sierpinksiTriangle", isFullScreen: false, component: <SierpinskiTriangle index={smallComponents.length} width={width * 0.6} height={height * 0.8} /> },
-	{ id: "gameOfLife", isFullScreen: false, component: <GameOfLife index={smallComponents.length} width={1200} height={600} /> }
+		{ id: "sierpinksiTriangle", isFullScreen: false, component: <SierpinskiTriangle index={smallComponents.length} width={width * 0.5} height={height * 0.8} /> },
+		{ id: "gameOfLife", isFullScreen: false, component: <GameOfLife index={smallComponents.length} width={width*0.4} height={height*0.4} /> }
 	])
 
 	const showFullScreen = (id) => {
@@ -87,7 +87,7 @@ const GenerativeArt = () => {
 								return (
 									<Col key={i} sm={4}>
 										<Card className="gen_art p-3 m-3">
-											<Card.Img as={Container} variant="top">
+											<Card.Img as={Container} variant="top" className="p-0">
 												{art.component}
 											</Card.Img>
 											<Card.Body>
@@ -121,9 +121,6 @@ const GenerativeArt = () => {
 							)}
 					</>)
 				})}
-
-
-
 			</section>
 		</>
 	)

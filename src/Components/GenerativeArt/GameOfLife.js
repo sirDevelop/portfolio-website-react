@@ -1,17 +1,17 @@
 import * as React from "react";
 import { ReactP5Wrapper } from "@p5-wrapper/react";
 
-const GameOfLife = ({ index, width, height }) => {
+const GameOfLife = ({ type, index, width, height }) => {
     let cells, cellColor;
-    let scale = width < 500 ? 5 : 20;
-    let size;
+    let scale = 8;
+    let size = Math.floor(Math.max(width, height) / scale);
     let speed = 3;
     let running = true;
     let survival_rate = 0.5;
     let canvasName = "defaultCanvas" + index;
     let dragging = false;
 
-    const clearCells = (size) => {
+    const clearCells = () => {
         cells = Array.from(Array(size), () => new Array(size));
         for (let i = 0; i < size; i++) {
             for (let j = 0; j < size; j++) {
@@ -65,7 +65,7 @@ const GameOfLife = ({ index, width, height }) => {
         return population;
     }
 
-    const initializeCells = (p5, size) => {
+    const initializeCells = (p5) => {
         cellColor = p5.color(Math.random(255), Math.random(255), Math.random(255));
         cells = Array.from(Array(size), () => new Array(size));
 
@@ -122,8 +122,8 @@ const GameOfLife = ({ index, width, height }) => {
         p5.stroke(120);
         for (let i = 0; i < size; i++) {
             //x1, y1 to x2, y2
-            p5.line(i * scale, 0, i * scale, height);
-            p5.line(0, i * scale, width, i * scale);
+            p5.line(i * scale, 0, i * scale, scale*size);
+            p5.line(0, i * scale, size*scale, i * scale);
         }
 
         p5.fill(0);
@@ -139,11 +139,8 @@ const GameOfLife = ({ index, width, height }) => {
 
     const sketch = (p5) => {
         p5.setup = () => {
-            width = Math.floor(width);
-            height = Math.floor(height);
-            p5.createCanvas(width ? width : 680, height ? height : 680);
-            size = Math.floor(width / scale);
-            initializeCells(p5, size);
+            p5.createCanvas(size * scale, size * scale);
+            initializeCells(p5);
         }
 
         p5.draw = () => {
@@ -188,7 +185,7 @@ const GameOfLife = ({ index, width, height }) => {
                     running = !running;
                 }
                 else {
-                    initializeCells(p5, size);
+                    initializeCells(p5);
                     running = true;
                 }
             }
@@ -197,7 +194,7 @@ const GameOfLife = ({ index, width, height }) => {
             }
 
             if (p5.key == 'x') {
-                clearCells(size);
+                clearCells();
             }
         }
     }
