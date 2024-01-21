@@ -7,7 +7,7 @@ const GameOfLife = ({ type, index, width, height }) => {
     let scale = width > 800 ? 12 : 8;
     let size = Math.floor(Math.max(width, height) / scale);
     let speed = 2;
-    let running = true;
+    let running = false;
     let survival_rate = 0.5;
     let canvasName = "defaultCanvas" + index;
     let dragging = false;
