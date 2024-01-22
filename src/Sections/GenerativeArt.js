@@ -2,18 +2,19 @@ import Navigation from "../Components/Navigation"
 import useWindowDimensions from "../Components/useWindowDimensions"
 import Billiards from "../Components/GenerativeArt/Billiards"
 import SierpinskiTriangle from "../Components/GenerativeArt/SierpinskiTriangle"
-import GameOfLife from "../Components/GenerativeArt/GameOfLife"
+import GameOfLife, { populationReturn } from "../Components/GenerativeArt/GameOfLife"
 import parse from 'html-react-parser';
 
 import { Card, Button, Row, Col, Container, Collapse } from "react-bootstrap"
 import Swal from 'sweetalert2'
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { createPortal } from 'react-dom'
 import { faCopyright } from "@fortawesome/free-regular-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-
+import { useMain } from "../Components/useMain"
 
 const GenerativeArt = () => {
+	
 	const { height, width } = useWindowDimensions()
 	const small = { limit: Math.sqrt(width * height) / 40, wipeSize: Math.sqrt(width * height) / 15, ballRadiusLowerLimit: Math.sqrt(width * height) / 200, ballRadiusUpperLimit: Math.sqrt(width * height) / 100 }
 	const full = { limit: Math.sqrt(width * height) / 20, wipeSize: Math.sqrt(width * height) / 5, ballRadiusLowerLimit: Math.sqrt(width * height) / 100, ballRadiusUpperLimit: Math.sqrt(width * height) / 50 }
@@ -73,8 +74,6 @@ const GenerativeArt = () => {
 		})
 	}
 
-	
-	
 	return (
 		<>
 			<section id="digital_art" className="sections pb-5">
@@ -125,7 +124,7 @@ const GenerativeArt = () => {
 						{art.isFullScreen &&
 							createPortal(
 								<Row>
-									<Col key={i} sm={12} className="centerV">
+									<Col key={i} sm={12} className="center">
 										{art.component}
 									</Col>
 								</Row>,

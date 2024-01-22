@@ -2,7 +2,7 @@ import * as React from "react";
 import { ReactP5Wrapper } from "@p5-wrapper/react";
 
 const GameOfLife = ({ type, index, width, height }) => {
-
+    let population = 0;
     let cells, cellColor;
     let scale = width > 800 ? 12 : 8;
     let size = Math.floor(Math.max(width, height) / scale);
@@ -47,7 +47,6 @@ const GameOfLife = ({ type, index, width, height }) => {
     }
 
     const drawCells = (p5) => {
-        let population = 0;
         //no outline
         p5.noStroke();
 
@@ -63,7 +62,6 @@ const GameOfLife = ({ type, index, width, height }) => {
                 }
             }
         }
-        return population;
     }
 
     const initializeCells = (p5) => {
@@ -123,8 +121,8 @@ const GameOfLife = ({ type, index, width, height }) => {
         p5.stroke(120);
         for (let i = 0; i < size; i++) {
             //x1, y1 to x2, y2
-            p5.line(i * scale, 0, i * scale, scale*size);
-            p5.line(0, i * scale, size*scale, i * scale);
+            p5.line(i * scale, 0, i * scale, scale * size);
+            p5.line(0, i * scale, size * scale, i * scale);
         }
 
         p5.fill(0);
@@ -138,6 +136,24 @@ const GameOfLife = ({ type, index, width, height }) => {
         return Math.min(Math.max(num, min), max);
     }
 
+    const equals = (array1, array2) => {
+        if (!Array.isArray(array1) && !Array.isArray(array2)) {
+            return array1 === array2;
+        }
+
+        if (array1.length !== array2.length) {
+            return false;
+        }
+
+        for (var i = 0, len = array1.length; i < len; i++) {
+            if (!equals(array1[i], array2[i])) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     const sketch = (p5) => {
         p5.setup = () => {
             p5.createCanvas(size * scale, size * scale);
@@ -145,19 +161,17 @@ const GameOfLife = ({ type, index, width, height }) => {
         }
 
         p5.draw = () => {
-            let population = drawCells(p5);
+            drawCells(p5);
             setupGrid(p5);
-                
             if (p5.frameCount % speed == 1 && running) {
                 let next = nextGeneration();
-                if (next.every((val, index) => val === cells[index])) {
+
+                if (equals(next, cells)) {
                     // population is static, so reset
                     initializeCells(p5);
-
                 } else {
                     cells = next;
-                }   
-                
+                }
             }
         };
 
@@ -181,7 +195,7 @@ const GameOfLife = ({ type, index, width, height }) => {
             if (e.target.id === canvasName) {
                 if (dragging) {
                     running = !running;
-                    dragging = false;    
+                    dragging = false;
                 }
             }
         }
@@ -212,7 +226,7 @@ const GameOfLife = ({ type, index, width, height }) => {
             }
         }
     }
-    return <ReactP5Wrapper sketch={sketch} />;
+    return <ReactP5Wrapper sketch={sketch}/>;
 }
 
 export default GameOfLife

@@ -1,10 +1,16 @@
 import Preloader from "./Components/Preloader"
 import { Routes, Route } from "react-router-dom"
-import { lazy, Suspense } from 'react';
+import { lazy, Suspense, useState } from 'react';
 
 // check when its fully loaded, works with Suspense
-const MainComponent = lazy(() => import('./Components/useMain'))
-const PersonalizeTheme = lazy(() => import('./Components/PersonalizeTheme'))
+// lazy loading - shows you preloader until the website is fully loaded
+// lazy and suspense work together
+const delay = 1500
+const MainComponent = lazy(() => {
+	return new Promise(resolve => {
+		setTimeout(() => resolve(import("./Components/useMain")), delay);
+	});
+});
 const Intro = lazy(() => import('./Sections/Intro'))
 const More = lazy(() => import('./Sections/More'))
 const Music = lazy(() => import('./Sections/Music'))
@@ -15,9 +21,19 @@ const GenerativeArt = lazy(() => import('./Sections/GenerativeArt'))
 const Footer = lazy(() => import('./Sections/Footer'))
 
 const App = () => {
+	const [preloaderStage, setPreloaderStage] = useState(0)
+	const removeTheQuote = () => {
+		setTimeout(() => {
+			setPreloaderStage(1)
+		}, delay)
+		return <></>
+	}
 	return (
 		<>
-			<Suspense fallback={<Preloader />}>
+			{/* when you change the page, this part shows */}
+			<Suspense fallback={<Preloader preloaderStage={preloaderStage} />}>
+				{removeTheQuote()}
+				{/* when you refresh the page both preloaders stage 0 and 1 are shown */}
 				<MainComponent>
 					<Routes>
 						<Route
@@ -26,7 +42,7 @@ const App = () => {
 								<>
 									<Intro />
 									<More />
-									<Music /> 
+									<Music />
 									<PastProjects />
 									<Contact />
 								</>
