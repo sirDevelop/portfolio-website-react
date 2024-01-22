@@ -149,7 +149,15 @@ const GameOfLife = ({ type, index, width, height }) => {
             setupGrid(p5);
                 
             if (p5.frameCount % speed == 1 && running) {
-                cells = nextGeneration();
+                let next = nextGeneration();
+                if (next.every((val, index) => val === cells[index])) {
+                    // population is static, so reset
+                    initializeCells(p5);
+
+                } else {
+                    cells = next;
+                }   
+                
             }
         };
 
