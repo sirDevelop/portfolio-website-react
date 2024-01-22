@@ -162,6 +162,7 @@ const GameOfLife = ({ type, index, width, height }) => {
         p5.mouseDragged = (e) => {
             if (e.target.id === canvasName) {
                 dragging = true;
+                running = false;
                 let x = constrain(Math.floor(p5.mouseX / scale), 0, size - 1);
                 let y = constrain(Math.floor(p5.mouseY / scale), 0, size - 1);
                 setCell(x, y, 1);
@@ -169,9 +170,11 @@ const GameOfLife = ({ type, index, width, height }) => {
         }
 
         p5.mouseReleased = (e) => {
-            if (e.target.id === canvasName && dragging) {
-                running = !running;
-                dragging = false;
+            if (e.target.id === canvasName) {
+                if (dragging) {
+                    running = !running;
+                    dragging = false;    
+                }
             }
         }
         p5.keyPressed = () => {
