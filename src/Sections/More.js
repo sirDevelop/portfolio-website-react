@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import parse from 'html-react-parser';
 import { Row, Col } from "react-bootstrap"
 import { Link } from "react-router-dom";
@@ -25,6 +25,7 @@ const More = () => {
 	const skills = ["React", "HTML/(S)CSS", "Javascript/Typescript", "Node.js", "Java", "Python", "MongoDB", "SQL", "R"]
 
 	const coursework = [{ title: "Linear Algebra" }, { title: "Automata,Computability, & Complexity" }, { title: "Probability & Random Variables" }, { title: "Intro to Machine Learning" }, { title: "Design & Analysis of Algorithms" }, { title: "Computation Structures" }, { title: "Real Analysis" }, { title: "Advances in Computer Vision" }, { title: "Elements of Software Construction" }, { title: "Discrete Mathematics" }];
+
 
 	return (
 		<section id="more" className="sections">
@@ -114,10 +115,11 @@ const More = () => {
 						<div className="text-bold">
 							<p>
 								Previous Experience:
+
 								<a
 									className="ms-2"
 									target="_blank"
-									href={require("../assets/resume.pdf")}
+									href="https://chenw.net/public/resume.pdf"
 								>
 									Resume
 								</a>

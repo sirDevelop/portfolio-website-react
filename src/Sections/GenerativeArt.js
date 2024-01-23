@@ -26,21 +26,21 @@ const GenerativeArt = () => {
 			WipeSize={small.wipeSize} ballRadiusLowerLimit={small.ballRadiusLowerLimit}
 			ballRadiusUpperLimit={small.ballRadiusUpperLimit} />,
 		description: "A simulation in which the larger sized balls absorb the smaller ones. Play it across multiple panels in full screen mode.",
-		instructions: `<ul className="list-style-none m-0 p-0"><li>Click to spawn a new ball.</li> <li>Hold the mouse down to continuously spawn.</li><li>Right click inside the screen to start/pause.</li></ul>`
+		instructions: `<ul className="list-style-none m-0 p-0"><li className="text-dark">Click to spawn a new ball.</li> <li className="text-dark">Hold the mouse down to continuously spawn.</li><li className="text-dark">Right click inside the screen to start/pause.</li></ul>`
 	},
 	{
 		id: "sierpinksiTriangle",
 		title: "Sierpinski's Triangle",
 		component: <SierpinskiTriangle type={"card"} index={1} width={300} height={200} />,
 		description: "A famous fractal in which an equilateral triangle recursively subdivides itself into smaller equilateral triangles.",
-		instructions: `<ul className="list-style-none m-0 p-0"><li>Keep clicking on the triangle to render more iterations of this fabulous fractal.</li></ul>`
+		instructions: `<ul className="list-style-none m-0 p-0"><li className="text-dark">Keep clicking on the triangle to render more iterations of this fabulous fractal.</li></ul>`
 	},
 	{
 		id: "gameOfLife",
 		title: "The Game of Life",
 		component: <GameOfLife type={"card"} index={2} width={300} height={200} />,
 		description: "A cellular automaton by Mathematician John Conway designed to model population growth. Black represents life and white represents death.",
-		instructions: `<ul className="list-style-none m-0 p-0"><li>Click to pause/ restart the simulation.</li><li>Hold and drag your mouse across the cells to create new colonies.</li></ul>`
+		instructions: `<ul className="list-style-none m-0 p-0"><li className="text-dark">Click to pause/ restart the simulation.</li><li className="text-dark">Hold and drag your mouse across the cells to create new colonies.</li></ul>`
 	}
 	]
 
@@ -101,7 +101,7 @@ const GenerativeArt = () => {
 											</Card.Img>
 											<Card.Body>
 												<Card.Title>{art.title}</Card.Title>
-												<Card.Text>
+												<Card.Text className="text-dark">
 													{art.description}
 													<hr />
 													{parse(art.instructions)}
