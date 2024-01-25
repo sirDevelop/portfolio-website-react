@@ -7,7 +7,6 @@ const Preloader = ({ preloaderStage, loadingDelay }) => {
         { quote: "In three words I can sum up everything I've learned about life: it goes on.", author: "Robert Frost" },
         { quote: "Life is too important to be taken seriously.", author: "Oscar Wilde" },
         { quote: "Life is a dream for the wise, a game for the fool, a comedy for the rich, a tragedy for the poor.", author: "Sholom Aleichem" },
-        { quote: "The purpose of life is not to be happy. It is to be useful, to be honorable, to be compassionate, to have it make some difference that you have lived and lived well.", author: "Ralph Waldo Emerson" },
         { quote: "Life is a song - sing it. Life is a game - play it. Life is a challenge - meet it. Life is a dream - realize it. Life is a sacrifice - offer it. Life is love - enjoy it.", author: "Sai Baba" },
         { quote: "The only true wisdom is in knowing you know nothing.", author: "Socrates" },
         { quote: "The purpose of our lives is to be happy.", author: "Dalai Lama" },
@@ -22,7 +21,12 @@ const Preloader = ({ preloaderStage, loadingDelay }) => {
         { quote: "The more you know, the more you realize you don't know.", author: " Aristotle" },
         { quote: "A wise man learns more from his enemies than a fool from his friends.", author: "Baltasar Gracián" },
         { quote: "The greatest deception men suffer is from their own opinions.", author: "Leonardo da Vinci" },
-        { quote: "The quieter you become, the more you can hear.", author: "Ram Dass" }]
+        { quote: "The quieter you become, the more you can hear.", author: "Ram Dass" },
+        { quote: "Wisdom is not a product of schooling but of the lifelong attempt to acquire it.", author: "Albert Einstein" },
+        { quote: "The only way to do great work is to love what you do.", author: "Steve Jobs" },
+        { quote: "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment.", author: "Ralph Waldo Emerson" },
+        { quote: "The greatest glory in living lies not in never falling, but in rising every time we fall.", author: "Nelson Mandela" }
+    ]
 
     const index = Math.floor(Math.random() * quotes.length);
     const selectedQuote = quotes[index];
