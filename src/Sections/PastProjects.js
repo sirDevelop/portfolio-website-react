@@ -98,8 +98,6 @@ const PastProjects = () => {
 								}} onMouseLeave={(e) => {
 									setPastProjects(pastProjects => { return [...pastProjects.map((_) => { return { ..._, isHovered: false } })] })
 								}} className={`flip-card ${project.isHovered ? "hovered" : ""}`} >
-									
-									
 								</div> */}
 							</Col>
 						)
