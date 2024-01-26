@@ -12,9 +12,9 @@ const Navigation = () => {
 			<li>
 				<Link to="/generative_art">Generative Art</Link>
 			</li>
-			{/* <li>
+			<li>
 				<Link to="/contact">Contact</Link>
-			</li> */}
+			</li>
 		</ul>
 	)
 }
