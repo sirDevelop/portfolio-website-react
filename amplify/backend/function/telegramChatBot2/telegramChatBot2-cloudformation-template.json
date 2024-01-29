@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "TelegramChat",
+            "telegramChatBot2",
             {
               "Fn::Join": [
                 "",
                 [
-                  "TelegramChat",
+                  "telegramChatBot2",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "serverLambdaRole79cdfcca",
+            "portfoliowebsitereacLambdaRolef3612ef2",
             {
               "Fn::Join": [
                 "",
                 [
-                  "serverLambdaRole79cdfcca",
+                  "portfoliowebsitereacLambdaRolef3612ef2",
                   "-",
                   {
                     "Ref": "env"

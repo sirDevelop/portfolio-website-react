@@ -3,7 +3,7 @@
   "paths": {
     "/server/send": {
       "name": "/server/send",
-      "lambdaFunction": "TelegramChatbot",
+      "lambdaFunction": "telegramChatBot2",
       "permissions": {
         "setting": "open"
       }

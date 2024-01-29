@@ -1,0 +1,43 @@
+{
+  "api": {
+    "telegramChatBot": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "telegramChatBot2"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "telegramChatBot2": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_telegramChatBot2_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "telegramChatBot2"
+        }
+      ]
+    },
+    "AMPLIFY_function_telegramChatBot2_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "telegramChatBot2"
+        }
+      ]
+    }
+  }
+}

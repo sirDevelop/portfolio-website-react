@@ -1,20 +1,13 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "Telegram": {
+    "telegramChatBot": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
     }
   },
   "function": {
-    "TelegramChat": {
-      "Arn": "string",
-      "LambdaExecutionRole": "string",
-      "LambdaExecutionRoleArn": "string",
-      "Name": "string",
-      "Region": "string"
-    },
-    "TelegramChatbot": {
+    "telegramChatBot2": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
