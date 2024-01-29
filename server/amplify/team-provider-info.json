@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-server-dev-201437-authRole",
+      "UnauthRoleArn": "arn:aws:iam::278094131377:role/amplify-server-dev-201437-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::278094131377:role/amplify-server-dev-201437-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-server-dev-201437-deployment",
+      "UnauthRoleName": "amplify-server-dev-201437-unauthRole",
+      "StackName": "amplify-server-dev-201437",
+      "StackId": "arn:aws:cloudformation:us-east-1:278094131377:stack/amplify-server-dev-201437/c4329680-be43-11ee-9567-0e728fa83c63",
+      "AmplifyAppId": "d25dzcud96dn6g"
+    },
+    "categories": {
+      "function": {
+        "TelegramChat": {
+          "deploymentBucketName": "amplify-server-dev-201437-deployment",
+          "s3Key": "amplify-builds/TelegramChat-446f39444b4e6c316348-build.zip"
+        }
+      },
+      "api": {
+        "Telegram": {}
+      }
+    }
+  }
+}
