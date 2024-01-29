@@ -1,25 +1,29 @@
 {
-  "staging": {
+  "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-amplifyffac2b45b8684-staging-164443-authRole",
-      "UnauthRoleArn": "arn:aws:iam::278094131377:role/amplify-amplifyffac2b45b8684-staging-164443-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::278094131377:role/amplify-amplifyffac2b45b8684-staging-164443-authRole",
-      "Region": "us-east-2",
-      "DeploymentBucketName": "amplify-amplifyffac2b45b8684-staging-164443-deployment",
-      "UnauthRoleName": "amplify-amplifyffac2b45b8684-staging-164443-unauthRole",
-      "StackName": "amplify-amplifyffac2b45b8684-staging-164443",
-      "StackId": "arn:aws:cloudformation:us-east-2:278094131377:stack/amplify-amplifyffac2b45b8684-staging-164443/34ee45d0-bc6a-11ee-b024-063bd7523d01",
-      "AmplifyAppId": "d1uy2zyrkfjqak"
+      "AuthRoleName": "amplify-portfoliowebsitereac-dev-115649-authRole",
+      "UnauthRoleArn": "arn:aws:iam::278094131377:role/amplify-portfoliowebsitereac-dev-115649-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::278094131377:role/amplify-portfoliowebsitereac-dev-115649-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-portfoliowebsitereac-dev-115649-deployment",
+      "UnauthRoleName": "amplify-portfoliowebsitereac-dev-115649-unauthRole",
+      "StackName": "amplify-portfoliowebsitereac-dev-115649",
+      "StackId": "arn:aws:cloudformation:us-east-1:278094131377:stack/amplify-portfoliowebsitereac-dev-115649/654bcd60-bec7-11ee-ade8-0e7effc02b49",
+      "AmplifyAppId": "d29rpug5f8b227"
     },
     "categories": {
       "function": {
-        "telegramChatBot2": {
-          "deploymentBucketName": "amplify-amplifyffac2b45b8684-staging-164443-deployment",
-          "s3Key": "amplify-builds/telegramChatBot2-42356e444e6c4a727736-build.zip"
+        "server": {
+          "deploymentBucketName": "amplify-portfoliowebsitereac-dev-115649-deployment",
+          "s3Key": "amplify-builds/server-6562444f2f3967682f75-build.zip"
+        },
+        "telegramSend": {
+          "deploymentBucketName": "amplify-portfoliowebsitereac-dev-115649-deployment",
+          "s3Key": "amplify-builds/telegramSend-55435273742f49376f4e-build.zip"
         }
       },
       "api": {
-        "telegramChatBot": {}
+        "telegram": {}
       }
     }
   }

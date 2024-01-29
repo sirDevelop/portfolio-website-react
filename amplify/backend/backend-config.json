@@ -1,6 +1,6 @@
 {
   "api": {
-    "telegramChatBot": {
+    "telegram": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,15 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "telegramChatBot2"
+          "resourceName": "server"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "telegramSend"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -16,26 +24,47 @@
     }
   },
   "function": {
-    "telegramChatBot2": {
+    "server": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "telegramSend": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_telegramChatBot2_deploymentBucketName": {
+    "AMPLIFY_function_server_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "telegramChatBot2"
+          "resourceName": "server"
         }
       ]
     },
-    "AMPLIFY_function_telegramChatBot2_s3Key": {
+    "AMPLIFY_function_server_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "telegramChatBot2"
+          "resourceName": "server"
+        }
+      ]
+    },
+    "AMPLIFY_function_telegramSend_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "telegramSend"
+        }
+      ]
+    },
+    "AMPLIFY_function_telegramSend_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "telegramSend"
         }
       ]
     }
