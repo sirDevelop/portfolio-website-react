@@ -1,9 +1,9 @@
 {
   "version": 1,
   "paths": {
-    "/send": {
-      "name": "/send",
-      "lambdaFunction": "TelegramChat",
+    "/server/send": {
+      "name": "/server/send",
+      "lambdaFunction": "TelegramChatbot",
       "permissions": {
         "setting": "open"
       }

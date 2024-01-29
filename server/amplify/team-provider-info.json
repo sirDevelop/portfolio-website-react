@@ -16,6 +16,10 @@
         "TelegramChat": {
           "deploymentBucketName": "amplify-server-dev-201437-deployment",
           "s3Key": "amplify-builds/TelegramChat-446f39444b4e6c316348-build.zip"
+        },
+        "TelegramChatbot": {
+          "deploymentBucketName": "amplify-server-dev-201437-deployment",
+          "s3Key": "amplify-builds/TelegramChatbot-4b546e3838497572316e-build.zip"
         }
       },
       "api": {

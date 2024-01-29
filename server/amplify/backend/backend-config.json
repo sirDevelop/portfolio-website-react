@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "TelegramChat"
+          "resourceName": "TelegramChatbot"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -17,6 +17,11 @@
   },
   "function": {
     "TelegramChat": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "TelegramChatbot": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -36,6 +41,22 @@
         {
           "category": "function",
           "resourceName": "TelegramChat"
+        }
+      ]
+    },
+    "AMPLIFY_function_TelegramChatbot_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "TelegramChatbot"
+        }
+      ]
+    },
+    "AMPLIFY_function_TelegramChatbot_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "TelegramChatbot"
         }
       ]
     }
