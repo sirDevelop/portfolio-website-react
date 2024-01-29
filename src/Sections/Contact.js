@@ -44,7 +44,8 @@ const Contact = () => {
 				setFormData({ name: '', subject: '', email: '', message: '' })
 			}).catch((error) => {
 				setShowMessage(true)
-				setMessage("Something went wrong")
+				setHeading("Something's Wrong")
+				setMessage("I will take a look")
 				setStatus("danger")
 			})
 		}else{

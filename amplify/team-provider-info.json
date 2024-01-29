@@ -1,0 +1,26 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-portfoliowebsitereac-dev-194211-authRole",
+      "UnauthRoleArn": "arn:aws:iam::278094131377:role/amplify-portfoliowebsitereac-dev-194211-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::278094131377:role/amplify-portfoliowebsitereac-dev-194211-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-portfoliowebsitereac-dev-194211-deployment",
+      "UnauthRoleName": "amplify-portfoliowebsitereac-dev-194211-unauthRole",
+      "StackName": "amplify-portfoliowebsitereac-dev-194211",
+      "StackId": "arn:aws:cloudformation:us-east-1:278094131377:stack/amplify-portfoliowebsitereac-dev-194211/3c6bd120-be3f-11ee-a69e-1299240abae3",
+      "AmplifyAppId": "d2x72k191735ja"
+    },
+    "categories": {
+      "function": {
+        "telegramChat": {
+          "deploymentBucketName": "amplify-portfoliowebsitereac-dev-194211-deployment",
+          "s3Key": "amplify-builds/telegramChat-6e6851732f3231514652-build.zip"
+        }
+      },
+      "api": {
+        "telegram": {}
+      }
+    }
+  }
+}
