@@ -1,6 +1,6 @@
 {
   "api": {
-    "telegram": {
+    "portfoliobackend": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,15 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "server"
-        },
-        {
-          "attributes": [
-            "Name",
-            "Arn"
-          ],
-          "category": "function",
-          "resourceName": "telegramSend"
+          "resourceName": "portfoliowebsitereac52d8e043"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -24,47 +16,33 @@
     }
   },
   "function": {
-    "server": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda"
-    },
-    "telegramSend": {
+    "portfoliowebsitereac52d8e043": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
+  "hosting": {
+    "amplifyhosting": {
+      "lastPushTimeStamp": "2024-02-21T11:08:30.752Z",
+      "service": "amplifyhosting",
+      "type": "cicd"
+    }
+  },
   "parameters": {
-    "AMPLIFY_function_server_deploymentBucketName": {
+    "AMPLIFY_hosting_amplifyhosting_appId": {
       "usedBy": [
         {
-          "category": "function",
-          "resourceName": "server"
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
         }
       ]
     },
-    "AMPLIFY_function_server_s3Key": {
+    "AMPLIFY_hosting_amplifyhosting_type": {
       "usedBy": [
         {
-          "category": "function",
-          "resourceName": "server"
-        }
-      ]
-    },
-    "AMPLIFY_function_telegramSend_deploymentBucketName": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "telegramSend"
-        }
-      ]
-    },
-    "AMPLIFY_function_telegramSend_s3Key": {
-      "usedBy": [
-        {
-          "category": "function",
-          "resourceName": "telegramSend"
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
         }
       ]
     }
