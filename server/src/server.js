@@ -1,10 +1,15 @@
+import { Amplify } from 'aws-amplify';
+import amplifyconfig from './amplifyconfiguration.json';
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const TelegramBot = require("node-telegram-bot-api");
 const cors = require('cors')
-
 require("dotenv").config();
+
+
+Amplify.configure(amplifyconfig);
 
 // const net = require('net')
 // const server = net.createServer()

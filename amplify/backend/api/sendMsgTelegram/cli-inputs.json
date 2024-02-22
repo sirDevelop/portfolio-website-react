@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "paths": {
+    "/server/send": {
+      "name": "/server/send",
+      "lambdaFunction": "portfolioTelegram",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/server": {
+      "name": "/server",
+      "lambdaFunction": "portfolioBackend",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

@@ -13,13 +13,24 @@
     },
     "categories": {
       "function": {
-        "portfoliowebsitereac52d8e043": {}
+        "portfoliowebsitereac52d8e043": {},
+        "portfolioTelegram": {
+          "deploymentBucketName": "amplify-portfoliowebsitereac-dev-20653-deployment",
+          "s3Key": "amplify-builds/portfolioTelegram-7a563147657a5973646a-build.zip"
+        },
+        "portfolioBackend": {
+          "deploymentBucketName": "amplify-portfoliowebsitereac-dev-20653-deployment",
+          "s3Key": "amplify-builds/portfolioBackend-53565671615275657075-build.zip"
+        }
       },
       "hosting": {
         "amplifyhosting": {
           "appId": "d2l9uuflccnomu",
           "type": "cicd"
         }
+      },
+      "api": {
+        "sendMsgTelegram": {}
       }
     }
   }
