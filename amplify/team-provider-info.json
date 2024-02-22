@@ -1,4 +1,35 @@
 {
+  "master": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-portfoliowebsitereac-master-74120-authRole",
+      "UnauthRoleArn": "arn:aws:iam::278094131377:role/amplify-portfoliowebsitereac-master-74120-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::278094131377:role/amplify-portfoliowebsitereac-master-74120-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-portfoliowebsitereac-master-74120-deployment",
+      "UnauthRoleName": "amplify-portfoliowebsitereac-master-74120-unauthRole",
+      "StackName": "amplify-portfoliowebsitereac-master-74120",
+      "StackId": "arn:aws:cloudformation:us-east-1:278094131377:stack/amplify-portfoliowebsitereac-master-74120/9b03a410-d08c-11ee-9f40-0ef62b8b4e5b",
+      "AmplifyAppId": "d2l9uuflccnomu"
+    },
+    "categories": {
+      "function": {
+        "portfolioBackend": {
+          "deploymentBucketName": "amplify-portfoliowebsitereac-master-74120-deployment",
+          "s3Key": "amplify-builds/portfolioBackend-53565671615275657075-build.zip"
+        },
+        "portfolioTelegram": {
+          "deploymentBucketName": "amplify-portfoliowebsitereac-master-74120-deployment",
+          "s3Key": "amplify-builds/portfolioTelegram-7a563147657a5973646a-build.zip"
+        }
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2l9uuflccnomu",
+          "type": "cicd"
+        }
+      }
+    }
+  },
   "dev": {
     "awscloudformation": {
       "AuthRoleName": "amplify-portfoliowebsitereac-dev-20653-authRole",
