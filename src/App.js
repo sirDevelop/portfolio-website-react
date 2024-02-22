@@ -1,7 +1,6 @@
 import Preloader from "./Components/Preloader"
 import { Routes, Route } from "react-router-dom"
-import { lazy, Suspense, useState, useEffect } from 'react'
-import axios from "axios"
+import { lazy, Suspense, useState } from 'react'
 
 // check when its fully loaded, works with Suspense
 // lazy loading - shows you preloader until the website is fully loaded
@@ -29,13 +28,6 @@ const App = () => {
 		}, delay)
 		return <></>
 	}
-	useEffect(() => {
-		axios.post(process.env.REACT_APP_SERVER_URL + "/test").then((response) => {
-			console.log(response)
-		}).catch((error) => {
-			console.log(error)
-		})
-	}, [])
 
 	return (
 		<>

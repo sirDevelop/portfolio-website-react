@@ -11,7 +11,7 @@ const Contact = () => {
 	const subjectRef = useRef()
 	const emailRef = useRef()
 	const messageRef = useRef()
-
+	
 	const handleFormData = (e) => {
 		setFormData((formData) => { return { ...formData, [e.target.name]: e.target.value } })
 	}
