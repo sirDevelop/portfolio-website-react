@@ -1,6 +1,7 @@
 import Preloader from "./Components/Preloader"
 import { Routes, Route } from "react-router-dom"
-import { lazy, Suspense, useState } from 'react';
+import { lazy, Suspense, useState, useEffect } from 'react'
+import axios from "axios"
 
 // check when its fully loaded, works with Suspense
 // lazy loading - shows you preloader until the website is fully loaded
