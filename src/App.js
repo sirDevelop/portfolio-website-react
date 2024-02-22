@@ -28,7 +28,14 @@ const App = () => {
 		}, delay)
 		return <></>
 	}
-	
+	useEffect(() => {
+		axios.post(process.env.REACT_APP_SERVER_URL + "/test").then((response) => {
+			console.log(response)
+		}).catch((error) => {
+			console.log(error)
+		})
+	}, [])
+
 	return (
 		<>
 			{/* when you change the page, this part shows */}

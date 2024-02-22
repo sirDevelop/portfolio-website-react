@@ -35,7 +35,7 @@ const Contact = () => {
 
 		if (!error) { // verify if fields are filled out properly
 			axios.post(process.env.REACT_APP_SERVER_URL + "/send/", formData).then((response) => {
-			// axios.post("/send/", formData).then((response) => {
+				// axios.post("/send/", formData).then((response) => {
 				if (response?.data.message && response?.data.status) {
 					setShowMessage(true)
 					setHeading(response.data.heading)
@@ -49,7 +49,7 @@ const Contact = () => {
 				setMessage("I will take a look")
 				setStatus("danger")
 			})
-		}else{
+		} else {
 			setShowMessage(true)
 			setHeading("Invalid Form")
 			setMessage("Please fill out all of the fields.")
@@ -71,7 +71,7 @@ const Contact = () => {
 						{message.length ? <p>
 							{message}
 						</p> : <></>}
-						
+
 					</Alert> : <></>}
 					<label>Name</label>
 					<input
