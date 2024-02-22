@@ -28,6 +28,7 @@ const App = () => {
 		}, delay)
 		return <></>
 	}
+	
 	return (
 		<>
 			{/* when you change the page, this part shows */}

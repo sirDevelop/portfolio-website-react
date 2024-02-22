@@ -20,6 +20,8 @@ server.once('listening', function () { server.close() })
 server.listen(port)
 server.once('close', function () {
     const origins = [process.env.FRONTEND_URL]
+    console.log(origins)
+    console.log(process.env.FRONTEND_URL)
     const app = express();
     app.use(cookieParser());
 
