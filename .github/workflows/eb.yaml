@@ -37,8 +37,8 @@ jobs:
         uses: einaregilsson/beanstalk-deploy@v21
         with:
          #  input the credentials you used to setup AWS CLI and credentials for the application environment
-          aws_access_key: "${{ process.env.ACCESS_KEY }}"
-          aws_secret_key: "${{ process.env.SECRET_ACCESS_KEY }}"
+          aws_access_key: "${{ secrets.ACCESS_KEY }}"
+          aws_secret_key: "${{ secrets.SECRET_ACCESS_KEY }}"
           aws_access_key: "AKIAUBP5TWCYSS4RLTGB"
           aws_secret_key: "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"
           application_name: Portfolio-WebApp
