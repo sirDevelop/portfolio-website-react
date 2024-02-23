@@ -6,19 +6,19 @@ const cors = require('cors')
 
 require("dotenv").config();
 
-// const net = require('net')
-// const server = net.createServer()
-// let port = 9000
+const net = require('net')
+const server = net.createServer()
+let port = 9000
 
-// server.once('error', (e) => {
-//     if (e.code === 'EADDRINUSE') {
-//         port = port + 1
-//         server.listen(port)
-//     }
-// })
-// server.once('listening', function () { server.close() })
-// server.listen(port)
-// server.once('close', function () {
+server.once('error', (e) => {
+    if (e.code === 'EADDRINUSE') {
+        port = port + 1
+        server.listen(port)
+    }
+})
+server.once('listening', function () { server.close() })
+server.listen(port)
+server.once('close', function () {
     const origins = [process.env.FRONTEND_URL]
     const app = express();
     app.use(cookieParser());
@@ -57,8 +57,8 @@ require("dotenv").config();
     });
    
     port = process.env.PORT || port;
-    app.listen(() =>
+    app.listen(port, () =>
         console.log(`Server started. Listening at port ${port}`)
     );
 
-// })
+})
