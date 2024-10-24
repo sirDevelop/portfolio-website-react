@@ -118,7 +118,7 @@ const More = () => {
 								<a
 									className="ms-2"
 									target="_blank"
-									href={require("../assets/resume.pdf")}
+									href={`${process.env.PUBLIC_URL}/resume.pdf`}
 								>
 									Resume
 								</a>
