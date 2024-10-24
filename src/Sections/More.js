@@ -11,14 +11,13 @@ const More = () => {
 	]
 
 	const facts = [
-		`I ride an electric unicycle, a 24" unicycle, a 29" mountain unicycle', and 36" unicycle`,
+		`I ride an electric unicycle and a mountain unicycle`,
 		`I am a licensed paraglider`,
-		`I am a licensed skydiver with over 200 skydives`,
-		`I have 2 cream Shiba Inus named Marco and Indra`,
+		`I am a licensed skydiver with close to 200 skydives`,
+		`I have 2 cream-colored Shiba Inus named Marco and Indra`,
 		`I grew up working at <a target="_blank" href="http://www.benichopsticks.us/">my family restaurant</a>`,
-		`I am a Go / Baduk player. <a target="_blank" href="https://online-go.com/user/view/1397763">Challenge me</a>`,
+		`I am a Go / Baduk player. <a target="_blank" href="https://online-go.com/player/1637648/">Challenge me</a>`,
 		`I am working on my associate's degree in Music`,
-		`I sell my own product on <a target="_blank" href="https://www.amazon.com/Artistic-Large-Mouse-Artwork-Name/dp/B0BYPW8X18">Amazon</a>`,
 		`I am an online tutor on <a target="_blank" href="https://www.wyzant.com/Tutors/cw95">Wyzant</a>`
 	]
 
