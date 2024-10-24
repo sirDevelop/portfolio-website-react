@@ -118,7 +118,7 @@ const More = () => {
 								<a
 									className="ms-2"
 									target="_blank"
-									href={'/resume.pdf'}
+									href={require("../assets/resume.pdf")}
 								>
 									Resume
 								</a>
