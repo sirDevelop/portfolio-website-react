@@ -42,7 +42,7 @@ jobs:
           application_name: Portfolio-WebApp
           environment_name: Portfolio-WebApp-env
           version_label: "app-${{ steps.format-time.outputs.replaced }}"
-          region: us-east-1
+          region: us-east-2
           deployment_package: PortfolioApp.zip
 
       - name: Deployed!
