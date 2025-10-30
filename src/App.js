@@ -54,7 +54,6 @@ const App = () => {
 							element={
 								<>
 									<DigitalArt />
-									<Contact />
 								</>
 							}
 						/>

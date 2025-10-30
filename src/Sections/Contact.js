@@ -79,14 +79,14 @@ const Contact = () => {
 						</h4>
 						<p style={{ color: '#d4af37', fontSize: '16px', marginBottom: '25px' }}>
 							Due to recent spam attacks, the contact form has been temporarily disabled.
-							We apologize for any inconvenience.
+							I apologize for any inconvenience.
 						</p>
 						<p style={{ color: '#ffffff', fontSize: '18px', marginBottom: '20px' }}>
 							Please reach out via:
 						</p>
 						<div style={{ display: 'flex', justifyContent: 'center', gap: '20px', flexWrap: 'wrap' }}>
 							<a
-								href="https://www.linkedin.com/in/chen-liu-developer/"
+								href="https://www.linkedin.com/in/cwcw11/"
 								target="_blank"
 								rel="noreferrer"
 								style={{

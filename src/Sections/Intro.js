@@ -35,7 +35,7 @@ const Intro = () => {
 									<div className="linkedin">
 										<a
 											target="_blank"
-											href="https://www.linkedin.com/in/cwcw11//"
+											href="https://www.linkedin.com/in/cwcw11/"
 										>
 											<img
 												src={LinkedIn}

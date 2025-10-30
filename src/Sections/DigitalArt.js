@@ -135,6 +135,48 @@ const DigitalArt = () => {
 				>
 					{isLoading ? 'Loading...' : 'Load More'}
 				</button>
+
+				{/* About the Art Section */}
+				<div style={{
+					marginTop: '80px',
+					marginBottom: '60px',
+					padding: '50px 30px',
+					background: 'linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(10, 10, 10, 0.9))',
+					borderRadius: '15px',
+					border: '2px solid rgba(255, 255, 255, 0.3)',
+					boxShadow: '0 10px 40px rgba(255, 255, 255, 0.1), 0 5px 20px rgba(255, 215, 0, 0.2)'
+				}}>
+					<h2 style={{
+						color: '#ffffff',
+						marginBottom: '25px',
+						textAlign: 'center',
+						textShadow: '0 0 20px rgba(255, 215, 0, 0.5)'
+					}}>
+						About the Art
+					</h2>
+					<div style={{
+						maxWidth: '800px',
+						margin: '0 auto',
+						lineHeight: '1.8'
+					}}>
+						<div style={{
+							textAlign: 'left',
+							color: '#d4af37',
+							fontSize: '15px'
+						}}>
+							<p style={{ marginBottom: '18px', lineHeight: '1.8' }}>
+								<span style={{ color: '#ffd700', fontWeight: 'bold' }}>Fractals</span> are self-similar patterns that repeat at different scales.
+								You can find them throughout nature in snowflakes, coastlines, and tree branches.
+							</p>
+
+							<p style={{ marginBottom: '0', lineHeight: '1.8' }}>
+								These artworks were created using <span style={{ color: '#ffd700', fontWeight: 'bold' }}>Chaotica</span>,
+								which uses flame fractal algorithms to transform mathematical equations into visual patterns. Small changes to the parameters
+								can produce completely different results.
+							</p>
+						</div>
+					</div>
+				</div>
 			</div>
 		</section>
 	)

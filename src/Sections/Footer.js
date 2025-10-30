@@ -5,7 +5,7 @@ const Footer = () => {
 		<section id="ending" className="sections">
 			<h4>
 				<div className="slight-expand-on-hover my-4">
-					<p>Looking for Something New</p>
+					<p>Ready for Something New</p>
 				</div>
 				<div className="slight-expand-on-hover">
 					<a target="_blank" href="https://github.com/sirDevelop">
