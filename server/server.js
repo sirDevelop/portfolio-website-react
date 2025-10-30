@@ -34,6 +34,9 @@ server.once('close', function () {
     app.use(bodyParser.urlencoded({ extended: false }));
     app.use(bodyParser.json());
 
+    // Create bot instance once, outside of request handler
+    const bot = new TelegramBot(process.env.TELEGRAM_TOKEN_ID);
+
     app.get("/", (req, res) => {})
 
     app.post("/send", (req, res) => {
@@ -41,8 +44,7 @@ server.once('close', function () {
             const { name, subject, email, message } = req.body
             if (name && name.length && email && email.length && subject && subject.length && message && message.length) {
 
-                // environment variables are declared on my AWS environment
-                const bot = new TelegramBot(process.env.TELEGRAM_TOKEN_ID/*, { polling: true } */);// polling is for returning the errors.
+                // Use the single bot instance
                 bot.sendMessage(process.env.CHAT_ID, `${name}\n${subject}\n${email}\n${message}`)
                 res.cookie("messageSuccess", true)
 

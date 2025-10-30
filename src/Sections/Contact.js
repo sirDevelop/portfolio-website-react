@@ -28,13 +28,13 @@ const Contact = () => {
 				!formData?.email
 					? emailRef.current.focus()
 					:
-					!formData?.email
+					!formData?.message
 						? messageRef.current.focus()
 						: (error = false)
 
 
 		if (!error) { // verify if fields are filled out properly
-			axios.post(process.env.REACT_APP_SERVER_URL + "/send/", formData).then((response) => {
+			axios.post(process.env.REACT_APP_SERVER_URL + "/send", formData).then((response) => {
 				// axios.post("/send/", formData).then((response) => {
 				if (response?.data.message && response?.data.status) {
 					setShowMessage(true)

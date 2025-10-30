@@ -13,11 +13,11 @@ const MainComponent = lazy(() => {
 });
 const Intro = lazy(() => import('./Sections/Intro'))
 const More = lazy(() => import('./Sections/More'))
-const Music = lazy(() => import('./Sections/Music'))
+// const Music = lazy(() => import('./Sections/Music')) // Temporarily disabled
 const PastProjects = lazy(() => import('./Sections/PastProjects'))
 const Contact = lazy(() => import('./Sections/Contact'))
 const DigitalArt = lazy(() => import('./Sections/DigitalArt'))
-const GenerativeArt = lazy(() => import('./Sections/GenerativeArt'))
+// const GenerativeArt = lazy(() => import('./Sections/GenerativeArt')) // Temporarily disabled for performance
 const Footer = lazy(() => import('./Sections/Footer'))
 
 const App = () => {
@@ -43,7 +43,7 @@ const App = () => {
 								<>
 									<Intro />
 									<More />
-									<Music />
+									{/* <Music /> */} {/* Temporarily disabled */}
 									<PastProjects />
 									<Contact />
 								</>
@@ -58,7 +58,7 @@ const App = () => {
 								</>
 							}
 						/>
-						<Route
+						{/* <Route
 							path="/generative_art"
 							element={
 								<>
@@ -66,7 +66,7 @@ const App = () => {
 									<Contact />
 								</>
 							}
-						/>
+						/> */}
 						<Route
 							path="/contact"
 							element={

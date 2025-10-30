@@ -11,12 +11,11 @@ const More = () => {
 	]
 
 	const facts = [
-		`I ride an electric unicycle and a mountain unicycle`,
+		`I can ride a unicycle`,
 		`I am a licensed paraglider`,
 		`I am a licensed skydiver with close to 200 skydives`,
 		`I have 2 cream-colored Shiba Inus named Marco and Indra`,
 		`I grew up working at <a target="_blank" href="http://www.benichopsticks.us/">my family restaurant</a>`,
-		`I am a Go / Baduk player. <a target="_blank" href="https://online-go.com/player/1637648/">Challenge me</a>`,
 		`I am working on my associate's degree in Music`,
 		`I am an online tutor on <a target="_blank" href="https://www.wyzant.com/Tutors/cw95">Wyzant</a>`
 	]
@@ -37,14 +36,14 @@ const More = () => {
 						<div >
 							<p>
 								I am a full stack developer, data analyst, and artist.
-								I am interested in big data problems, machine learning, and using code as a creative medium.
 							</p>
+							<br/>
 						</div>
 
 						<div id="certs" className="facts p-2">
 							<ul className="list-style-none">
 								<li><a target="_blank" href="https://github.com/sirDevelop">My Github</a></li>
-								<li><Link to="/digital_art">Digital Artwork</Link> / <Link to="/generative_art">Generative Artwork</Link></li>
+								{/* <li><Link to="/digital_art">Digital Artwork</Link> / <Link to="/generative_art">Generative Artwork</Link></li> */}
 								<li className="text-bold">Professional Certificates</li>
 								<ul>
 									{certificates.map((certs, i) => {

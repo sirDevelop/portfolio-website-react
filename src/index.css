@@ -1,7 +1,7 @@
 #loader-wrapper{
   width: 100vw;
   height: 100vh;
-  background-color: #eaeaea;
+  background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
 }
 #loader {
   position: absolute;
@@ -12,16 +12,16 @@
   margin-left: 0;
   margin-right: -60px;
   margin-bottom: 0; */
-  
+
   z-index: 1;
   width: 120px;
   height: 120px;
-  border: 16px solid #FFF;
+  border: 16px solid #2a2a3e;
   border-radius: 50%;
-  border-top: 16px solid #007bff;
+  border-top: 16px solid #ffd700;
   -webkit-animation: spin 1.25s infinite;
   animation: spin 1.25s infinite;
-  box-shadow: 0 0 15px 3px gold;
+  box-shadow: 0 0 35px 8px #ffd700;
   transition: all 1s;
 }
 #loader2 {
@@ -32,26 +32,30 @@
   z-index: 1;
   width: 120px;
   height: 120px;
-  border: 16px solid #FFF;
+  border: 16px solid #2a2a3e;
   border-radius: 50%;
-  border-top: 16px solid #007bff;
+  border-top: 16px solid #ffd700;
   -webkit-animation: spin 1.25s infinite;
   animation: spin 1.25s infinite;
-  box-shadow: 0 0 15px 3px gold;
+  box-shadow: 0 0 35px 8px #ffd700;
   transition: all 1s;
 }
 #loader-quote {
   position: absolute;
   width: 800px;
-  /* text-align: center; */
+  text-align: center;
   height: 120px;
   top: 50%;
   left: 50%;
   /* justify-content: center; */
-  margin: -76px 0 0 -362px;
+  margin: -76px 0 0 -400px;
   z-index: 1;
-  height: 120px;
-  font-size: 40px;
+  font-size: 24px;
+  color: #f0f0f5;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-family: "Roboto Mono", monospace;
+  line-height: 1.4;
+  padding: 20px;
 }
 
 @-webkit-keyframes spin {
@@ -126,7 +130,7 @@ code {
 }
 
 .nav-wrapper {
-  border-color: #c1c1c1 !important;
+  border-color: #333333 !important;
 }
 
 .react-photo-album--photo {
@@ -135,8 +139,10 @@ code {
 }
 
 .react-photo-album--photo:hover {
-  transition: all 0.2s;
-  box-shadow: 0 0 5px 5px gold;
+  transition: all 0.3s;
+  box-shadow: 0 0 25px 8px #ffd700;
+  transform: scale(1.05);
+  border: 2px solid #ffd700;
 }
 
 .projects {
@@ -169,7 +175,7 @@ code {
 
 .text-truncate2{
   display: -webkit-box;
-  -webkit-line-clamp: 4;
+  -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }

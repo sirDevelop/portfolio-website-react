@@ -81,8 +81,9 @@ const DigitalArt = () => {
 		{src: require("../assets/image/lava-drip-fractal-min.png"), width: 1200, height: 1200},
 		{src: require("../assets/image/infinite-circle-fractal-min.png"), width: 1200, height: 1200},
 	]
-	const [photos, setPhotos] = useState(imgPath.slice(0, 9))
+	const [photos, setPhotos] = useState(imgPath.slice(0, 6)) // Start with fewer images for faster load
 	const [index, setIndex] = useState(-1)
+	const [isLoading, setIsLoading] = useState(false)
 
 
 	return (
@@ -91,6 +92,7 @@ const DigitalArt = () => {
 				<div className="greeting-wrapper center">
 					<h1 style={{ marginBottom: 10 }}>Digital Art Gallery</h1>
 					<p>Created using Chaotica, click on each image to expand.</p>
+					<p style={{ fontSize: '14px', color: '#9b8fbf' }}>Loading {photos.length} of {imgPath.length} artworks</p>
 					<p>All rights reserved. <FontAwesomeIcon icon={faCopyright} /> 2024</p>
 				</div>
 				<div className="nav-wrapper border border-secondary border-bottom-0">
@@ -114,12 +116,24 @@ const DigitalArt = () => {
 				<button
 					id="load-more"
 					type="button"
-					className={`btn btn-outline-dark my-3 ${photos.length >= imgPath.length ? "d-none":""}`}
-					onClick={() => {
-						setPhotos(photos => [...photos, ...imgPath.slice(photos.length - 1, photos.length+8)])
+					className={`btn btn-primary my-3 ${photos.length >= imgPath.length ? "d-none":""}`}
+					style={{
+						background: 'linear-gradient(135deg, #6b5b95 0%, #9b8fbf 100%)',
+						border: 'none',
+						padding: '12px 30px',
+						fontWeight: '600',
+						transition: 'all 0.3s ease'
 					}}
+					onClick={() => {
+						setIsLoading(true);
+						setTimeout(() => {
+							setPhotos(photos => [...photos, ...imgPath.slice(photos.length, photos.length+6)]);
+							setIsLoading(false);
+						}, 300);
+					}}
+					disabled={isLoading}
 				>
-					Load more
+					{isLoading ? 'Loading...' : 'Load More'}
 				</button>
 			</div>
 		</section>

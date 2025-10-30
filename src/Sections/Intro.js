@@ -2,7 +2,7 @@ import React from "react"
 import Dots from "../Components/Dots"
 import Navigation from "../Components/Navigation"
 import Slider from "../Components/Slider"
-import PersonalizeTheme from "../Components/PersonalizeTheme"
+// import PersonalizeTheme from "../Components/PersonalizeTheme" // Removed theme selector
 import LinkedIn from "../assets/image/linkedin.svg"
 
 const Intro = () => {
@@ -21,7 +21,7 @@ const Intro = () => {
 					</div>
 					<div className="left-column">
 						<Slider />
-						<PersonalizeTheme />
+						{/* <PersonalizeTheme /> */} {/* Removed theme selector */}
 					</div>
 					<div className="right-column d-none d-md-block">
 						<div id="preview-shadow">
