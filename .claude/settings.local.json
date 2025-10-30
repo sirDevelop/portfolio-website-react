@@ -11,7 +11,10 @@
       "Bash(tasklist)",
       "Bash(dir:*)",
       "Bash(git add:*)",
-      "Bash(git commit:*)"
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(vercel:*)",
+      "Bash(npm run build:*)"
     ],
     "deny": [],
     "ask": []
